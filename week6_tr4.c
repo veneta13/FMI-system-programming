@@ -6,7 +6,7 @@ main(int argc, char * argv []) {
     int fd, j, nb1, status;
     char buf[5];
     
-    if(fork() {
+    if(fork()) {
         wait(&status);
         execlp("cat", "cat", argv[1], 0);
     }
