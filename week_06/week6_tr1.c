@@ -3,11 +3,11 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-main(int argc, char* argv[]) { 
-    int fd, i=4, nb1, status;
+main(int argc, char *argv[]) {
+    int fd, i = 4, nb1, status;
     char buf[5];
-    
-    if( fork()==0 ) {
+
+    if (fork() == 0) {
         ++i;
         printf("Stoinostta na i= %d\n", i);
     }
@@ -15,10 +15,11 @@ main(int argc, char* argv[]) {
         --i;
         exit(0);
         wait(&status);
-        if( execlp("ls", "ls", "-l", 0) == -1 ) 
-            i=i+1;
+        if (execlp("ls", "ls", "-l", 0) == -1)
+            i = i + 1;
         else
             printf("Stoinostta na i= %d\n", i);
     }
+
     printf("Stoinostta na i= %d\n", i);
 }

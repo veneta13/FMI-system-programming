@@ -2,11 +2,10 @@
 
 #define ERROR -1
 
-main()
-{
+main() {
     int flag, status;
 
-    if ( fork() ) {
+    if (fork()) {
         printf("parent - pid= %d, ppid= %d\n", getpid(), getppid());
         flag = 100;
     }
@@ -14,6 +13,6 @@ main()
         printf("child - pid= %d ppid= %d\n", getpid(), getppid());
         flag = 200;
     }
-    
+
     printf("\n Common part of parent+child--->flag = %d\n", flag);
 }

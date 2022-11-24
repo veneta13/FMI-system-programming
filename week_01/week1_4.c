@@ -5,23 +5,23 @@
 #include <fcntl.h>
 
 main(argc, argv)
-int argc;
-char *argv[];
+        int argc;
+        char *argv[];
 {
     char c;
     int fd, nl, nw, nc, inword;
     inword = NO;
     nl = nw = nc = 0;
-  
-    if((fd = open(argv[1], O_RDONLY)) == -1)
+
+    if ((fd = open(argv[1], O_RDONLY)) == -1)
         write(1, "error\n", 6);
-    while( (read(fd, &c, 1)) > 0){
+    while ((read(fd, &c, 1)) > 0) {
         nc++;
-        if ( c == '\n')
+        if (c == '\n')
             nl++;
-        if ( c  == ' ' || c =='\n' || c  == '\t')
+        if (c == ' ' || c == '\n' || c == '\t')
             inword = NO;
-        else if(inword == NO) {
+        else if (inword == NO) {
             inword = YES;
             nw++;
         }

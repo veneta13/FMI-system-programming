@@ -2,8 +2,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-main()
-{
+main() {
     int fd, j, nb1;
     char buf[5];
 
@@ -15,7 +14,7 @@ main()
     write(1, buf, nb1);
     write(fd, buf, nb1);
     write(j, buf, 3);
-    close(fd); 
+    close(fd);
     close(j);
     write(1, "\n", 1);
     execlp("cat", "cat", "fileA", 0);

@@ -10,7 +10,7 @@ main() {
     read(fd, buff, 4);
     write(1, buff, 4);
     close(fd);
-    
+
     read(fd1, buff, 9);
     write(1, buff, 9);
 }

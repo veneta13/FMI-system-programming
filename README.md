@@ -1,2 +1,3 @@
 # FMI-system-programming
-Tasks for the System programming course @ FMI.
+
+Tasks for the System Programming course @ FMI.

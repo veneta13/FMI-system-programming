@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 main(argc, argv)
-int argc;
-char *argv[];
+        int argc;
+        char *argv[];
 {
     int rc = 0;
 
@@ -13,6 +13,6 @@ char *argv[];
     else {
         printf("This line is never printed\n");
     }
-    
+
     exit(rc);
 }
