@@ -1,16 +1,17 @@
-#include <stdio.h>
+#include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+char buffer[16];
 
 main() {
-    char buff[13];
-    int fd, fd1;
+    int fd1 = open("ff", O_RDONLY);
+    int fd2 = dup(fd1);
 
-    fd = open("ff", O_RDONLY);
-    fd1 = dup(fd);
-    read(fd, buff, 4);
-    write(1, buff, 4);
-    close(fd);
+    write(1, buffer,read(fd1, buffer, 16));
+    write(1, buffer,read(fd2, buffer, 16));
 
-    read(fd1, buff, 9);
-    write(1, buff, 9);
+    close(fd1);
+    write(1, buffer,read(fd2, buffer, 16));
 }
