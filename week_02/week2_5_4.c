@@ -13,3 +13,15 @@ int main() {
         printf("%s", buffer);
     }
 }
+
+/*
+ *
+ * Output:
+ *
+ * abcde
+ * cdefe
+ * deffe
+ * deffe
+ * ceffe
+ *
+*/
