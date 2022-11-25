@@ -14,7 +14,8 @@ main(int argc, char *argv[]) {
     if (fork() == 0) {
         execlp(argv[1], argv[1], 0);
         exit(1);
-    } else {
+    }
+    else {
         wait(&status);
         printf("exit status = %d\n", status);
     }
