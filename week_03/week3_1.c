@@ -46,3 +46,13 @@ int main() {
     read(fd1, buffer, 6);
     write(1, buffer, 6);
 }
+
+/*
+ *
+ * Output:
+ *
+ * Hello Hello child!!!
+ * ------------------------------------
+ * worldsworlds
+ *
+ */
