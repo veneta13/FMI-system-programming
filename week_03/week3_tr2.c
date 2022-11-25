@@ -24,3 +24,15 @@ int main() {
     sprintf(buff, "%d", b);
     write(1, buff, sizeof(buff));
 }
+
+/*
+ *
+ * Output:
+ *
+ *
+ * a= 0
+ * b= 3
+ * a= 9
+ * b= 1
+ *
+ */
