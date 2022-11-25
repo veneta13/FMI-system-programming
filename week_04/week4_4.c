@@ -1,32 +1,19 @@
-#include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-
-main() {
-    int fd, i, j, k;
-    char str[20];
-
-    if ((fd = open("abc", O_CREAT | O_TRUNC | O_RDWR, 0666)) == -1) {
-        write(2, "Cannot create file abc \n", 24);
+main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("error: pass 2 arguments\n");
         exit(1);
     }
 
-    for (i = 0; i <= 5; ++i)
-        write(1, "HELLO\n", 6);
-
-    j = dup(1);
+    int fd = open(argv[1], O_CREAT | O_TRUNC | O_WRONLY, 0777);
     close(1);
-    k = dup(fd);
+    dup(fd);
 
-    for (i = 0; i <= 5; ++i) {
-        sprintf(str, "i = %d\n", i);
-        write(1, str, strlen(str));
+    for (int i = 0; i < 10; i++) {
+        write(1, "EXAMPLE\n", 8);
     }
-
-    close(1);
-    dup(j);
-
-    for (i = 0; i <= 5; ++i)
-        write(1, "HELLO you!!!\n", 16);
+}
