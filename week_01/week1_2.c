@@ -1,31 +1,37 @@
 #include <stdio.h>
 #include <fcntl.h>
 
+# define BUFSIZE 512
+
+// Program implementing the 'cat' command
+
 main(argc, argv)
         int argc;
         char *argv[];
 {
-    int flg = 0;
+    int fileCount = 0;
 
     while (argc-- > 1)
-        ct(argv[++flg]);
+        cat(argv[++fileCount]);
 
-    if (flg == 0)
-        ct((char *) 0);  /* ct (0); */
+    if (fileCount == 0)
+        cat((char *) 0);  /* cat (0); */
 }
 
-ct(s)
+cat(s)
         char *s;
 {
-    char buffer[BUFSIZ];
+    char buffer[BUFSIZE];
     int length;
-    int fd = 0;
+    int fd;
 
-    if (s)
+    if (s) {
         if ((fd = open(s, O_RDONLY)) == -1) {
             printf("\ncat: can't open %s\n", s);
             exit(1);
         }
+    }
+
     while ((length = read(fd, buffer, BUFSIZ)))
         write(1, buffer, length);
 }
