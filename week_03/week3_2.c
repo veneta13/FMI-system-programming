@@ -1,20 +1,33 @@
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 #include <fcntl.h>
 
-main() {
-    int fd1, fd2, fd3;
-    char buf[20];
-    open("fff", O_CREAT | O_TRUNC | O_RDWR, 0777);
+char buffer[20];
 
-    fd1 = open("fff", O_RDONLY);
-    fd2 = open("fff", O_WRONLY);
-    fd3 = open("fff", O_RDWR);
+int main() {
+    int fdr = open("f1", O_RDONLY);
+    int fdw = open("f1", O_WRONLY);
 
-    write(fd3, "hello", 5);
-    write(fd2, "worlds", 6);
-    read(fd1, buf, 6);
-    write(1, buf, 6);
-    close(fd2);
-    write(fd3, "oops", 4);
-    read(fd1, buf, 6);
-    write(1, buf, 6);
+    if (fdr == -1 || fdw == -1) {
+        printf("error: can't open file");
+        exit(1);
+    }
+
+    lseek(fdw, -3, SEEK_END);
+    write(fdw, "wxyz", 4);
+
+    lseek(fdw, 4, 0);
+    write(fdw, "12", 2);
+
+    int readBytes = read(fdr, buffer, 20);
+    write(1, buffer, readBytes);
 }
+
+/*
+ *
+ * Output:
+ *
+ * abcd12bcd-abwxyz
+ *
+ */
