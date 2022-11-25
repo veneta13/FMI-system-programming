@@ -1,17 +1,15 @@
-#include <stdio.h>
+#include <fcntl.h>
 
-#define ERROR -1
+main(int argc, char* argv[]) {
+    int fd = open(argv[1], O_RDONLY);
 
-main() {
-    int i;
-    if (fork() == 0) {
-        printf("child --> pid= %d ppid= %d\n", getpid(), getppid());
-        // for (i=1;i<= 1000000000 ;i++)  ;
-    }
-    else {
-        // wait();
-        printf("parent --> pid= %d, ppid= %d\n", getpid(), getppid());
+    if (fd == -1) {
+        write(2, "error: can't open file\n", sizeof("error: can't open file\n"));
+        exit(0);
     }
 
-    printf("\n Common part of parent+child\n");
+    close(0);
+    dup(fd);
+
+    execlp("grep", "grep", "int", 0);
 }
