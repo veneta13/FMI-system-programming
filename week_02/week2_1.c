@@ -8,10 +8,7 @@ int main() {
     int i;
 
     for (i = 5; i > 0; i--) {
-        if (read(fd, buffer, i) == 0) {
-            printf("error: reached end of file\n");
-        }
-
+        read(fd, buffer, i);
         printf("%s\n", buffer);
     }
 }

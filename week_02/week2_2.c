@@ -14,11 +14,7 @@ int main() {
     else {
         for (i = 5; i > 0; i--) {
             int readBytes;
-
-            if ((readBytes = read(fd, buffer, i)) == 0) {
-                printf("The file has been read\n");
-            }
-
+            readBytes = read(fd, buffer, i);
             write(1, buffer, readBytes);
         }
     }
