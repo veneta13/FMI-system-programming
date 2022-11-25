@@ -21,3 +21,13 @@ main() {
     write(1, "\n d= ", 5);
     write(1, &d, 1);
 }
+
+/*
+ *
+ * Output:
+ *
+ * c= 0
+ * d= z
+ * d= b
+ *
+ */

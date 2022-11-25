@@ -23,3 +23,12 @@ main(int argc, char *argv[]) {
 
     printf("Stoinostta na i= %d\n", i);
 }
+
+/*
+ *
+ * Output:
+ *
+ * Stoinostta na i= 5
+ * Stoinostta na i= 5
+ *
+ */

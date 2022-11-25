@@ -26,3 +26,12 @@ main(int argc, char *argv[]) {
         exit(0);
     }
 }
+
+/*
+ *
+ * Output:
+ *
+ * 1234512312345
+ * 12345
+ *
+ */
