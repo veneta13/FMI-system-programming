@@ -5,7 +5,7 @@
 
 char buffer[16];
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     if (argc != 2) {
         printf("error: pass 2 arguments\n");
         exit(1);
