@@ -19,3 +19,20 @@ int main(int argc, char *argv[]) {
 
     printf("\n%d\n", broi);
 }
+
+/*
+ *
+ * Output:
+ *
+ * I am a stuECHO
+ * 10
+ * dent CompuECHO
+ * 10
+ * ter sciencECHO
+ * 10
+ * e!!!ECHO
+ * 4
+ *
+ * 0
+ *
+ */
