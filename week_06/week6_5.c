@@ -1,26 +1,38 @@
-#include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-#define ERROR -1
-
-main() {
-    int i, fd1, fd2, status;
-    if ((fd1 = open("ff", O_WRONLY | O_CREAT, 0777)) == -1) {
-        printf("ERROR\n");
+main(int argc, char *argv[]) {
+    if (argc != 4) {
+        write(2, "error: provide 3 commands\n", sizeof("error: provide 3 commands\n"));
         exit(1);
     }
 
-    printf("%d\n", fd1);
-    fd2 = dup(fd1);
-    printf("%d\n", fd2);
+    int status;
 
     if (fork() == 0) {
-        write(fd1, "HELLO CHILD", 11);
+        if (fork() == 0) {
+            if (fork() == 0) {
+                execlp(argv[1], argv[1], 0);
+                exit(1);
+            }
+            else {
+                wait(&status);
+                printf("pid = %d\nstatus = %d\n", getpid(), status);
+                execlp(argv[2], argv[2], 0);
+                exit(1);
+            }
+        }
+        else {
+            wait(&status);
+            printf("pid = %d\nstatus = %d\n", getpid(), status);
+            execlp(argv[3], argv[3], 0);
+            exit(1);
+        }
     }
     else {
         wait(&status);
-        write(fd2, "HELLO PARENT", 12);
+        printf("pid = %d\nstatus = %d\n", getpid(), status);
     }
-
-    write(fd1, "COMMON PART", 11);
 }
