@@ -1,22 +1,29 @@
-#include<stdio.h>
-#include<fcntl.h>
+#include <stdio.h>
+#include <fcntl.h>
 
-char buf[16];
+char buffer[16];
 
 int main() {
-    int file = open("aa.txt", O_RDONLY);
+    int fd = open("aa", O_RDONLY);
     int i;
+
     for (i = 5; i > 0; i--) {
-        read(file, buf, i);
-        printf("%s\n", buf);
+        if (read(fd, buffer, i) == 0) {
+            printf("error: reached end of file\n");
+        }
+
+        printf("%s\n", buffer);
     }
-    return 0;
 }
 
 /*
-abcde
-fghie
-jklie
-mnlie
-onlie
+ *
+ * Output:
+ *
+ * abcde
+ * fghie
+ * jklie
+ * mnlie
+ * onlie
+ *
 */
