@@ -1,29 +1,25 @@
-#include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-#define ERROR -1
+char *args[10];
 
-main() {
-    int i, fd1, fd2;
-
-    if ((fd1 = open("ff", O_WRONLY | O_CREAT, 0777)) == -1) {
-        printf("ERROR\n");
-        exit(1);
+main(int argc, char *argv[]) {
+    for (int i = 2; i < argc; i++) {
+        args[i] = argv[i];
     }
 
-    printf("%d\n", fd1);
-
-    if ((fd2 = open("ff", O_WRONLY)) == -1) {
-        printf("GRESHKA\n");
-        exit(1);
-    }
-
-    printf("%d\n", fd2);
+    int status;
 
     if (fork() == 0) {
-        write(fd1, "HELLO", 5);
+        execvp(argv[1], args);
+        exit(1);
     }
     else {
-        write(fd2, "HELLO", 5);
+        wait(&status);
+        if (status == 0) {
+            printf("%d\n", status);
+        }
     }
 }
