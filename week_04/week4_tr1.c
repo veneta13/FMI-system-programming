@@ -17,3 +17,13 @@ int main() {
 
     write(fd, "Yes\n", sizeof("Yes\n"));
 }
+
+/*
+ *
+ * Output:
+ *
+ * fd = 3
+ * Hello-guys-and Goodbye!
+ * Yes
+ *
+ */
