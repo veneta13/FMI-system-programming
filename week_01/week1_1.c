@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <fcntl.h>
 
+// Program implementing the 'cp' command
+
 main(argc, argv)
         int argc;
         char *argv[];
