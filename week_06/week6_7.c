@@ -1,23 +1,43 @@
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
 
-#define DATEPATH "/bin/date"
-#define DATE "date"
-#define ERROR -1
+char buffer[16];
 
-main(argc, argv)
-        int argc;
-        char *argv[];
-{
-    int rc = 0;
+main(int argc, char *argv[]) {
+    if (argc != 2) {
+        write(2, "error: provide a filename\n", sizeof("error: provide a filename\n"));
+        exit(1);
+    }
 
-    if (execl(DATEPATH, DATE, 0) == ERROR) {
-        perror(DATEPATH);
-        printf("\n123This line is never printed\n");
-        rc = 1;
+    int status;
+
+    if (fork() == 0) {
+        int fd = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+        if (fd == -1) {
+            write(2, "error: can't open file\n", sizeof("error: can't open file\n"));
+            exit(1);
+        }
+
+        write(fd, "Hello\n", 6);
     }
     else {
-        printf("This line is never printed\n");
-    }
+        wait(&status);
+        if (status != 0) {
+            exit(1);
+        }
 
-    exit(rc);
+        int fd = open(argv[1], O_RDONLY);
+        if (fd == -1) {
+            write(2, "error: can't open file\n", sizeof("error: can't open file\n"));
+            exit(1);
+        }
+
+        for (int i = 0; i < 6; i += 2) {
+            read(fd, buffer, 2);
+            write(1, buffer, 2);
+            write(1, " ", 1);
+        }
+    }
 }
