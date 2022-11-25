@@ -11,3 +11,11 @@ int main() {
         execlp("wc", "wc", "-c", "aa", 0);
     }
 }
+
+/*
+ *
+ * Output:
+ *
+ * 27 aa
+ *
+ */
