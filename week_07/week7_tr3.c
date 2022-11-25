@@ -28,9 +28,25 @@ main() {
 
     write(1, "exam4\n", 6);
 
-    if ((execlp("ls", "ls", 0)) == -1)
+    if ((execlp("ls", "ls", 0)) == -1) {
         printf("I=%d K=%d\n", i, k);
+    }
     else {
         write(1, "exam5\n", 6);
     }
 }
+
+/*
+ *
+ * Output:
+ *
+ * exam2
+ * I=3 K=1
+ * ----------who output-----------------------
+ * exam1
+ * I=1 K= -1
+ * exam4
+ * ----------ls output------------------------
+ *
+ *
+ */
