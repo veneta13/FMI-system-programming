@@ -11,6 +11,7 @@ main(int argc, char *argv[]) {
         write(2, "Cannot open file\n", 18);
         exit(1);
     }
+
     num = atoi(argv[1]);
     while (read(fd, &c, 1)) {
         if (c == '\n') {
