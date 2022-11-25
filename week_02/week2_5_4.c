@@ -18,10 +18,16 @@ int main() {
  *
  * Output:
  *
- * abcde
- * cdefe
- * deffe
- * deffe
- * ceffe
+ * yz
+ *
+ * yz
+ *
+ * yz
+ *
+ * yz
+ *
+ * yz
+ *
+ *
  *
 */
