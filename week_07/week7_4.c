@@ -1,26 +1,21 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
 
-#define ERROR -1
-
-main() {
-    int i, fd1, fd2, status;
-    if ((fd1 = open("ff", O_WRONLY | O_CREAT, 0777)) == -1) {
-        printf("ERROR\n");
+int main(int argc, char *argv[]) {
+    if (argc != 3) {
+        write(2, "error: provide 2 filenames\n", sizeof("error: provide 2 filenames\n"));
         exit(1);
     }
 
-    printf("%d\n", fd1);
+    int fd1 = open(argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+    int fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 
     if (fork() == 0) {
-        close(1);
-        dup(fd1);
-        write(1, "HELLO1", 6);
-        write(1, "HELLO2", 6);
+        write(fd1, "hello2", 6);
     }
     else {
-        //wait(&status);
-        write(1, "HELLO3", 6);
-        write(fd1, "HELLO4", 6);
+        write(fd1, "hello1", 6);
     }
 }
