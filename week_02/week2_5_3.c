@@ -16,5 +16,13 @@ int main() {
 }
 
 /*
-  abcdefghijklmno
+ *
+ * Output:
+ *
+ * defgh
+ * lmnoh
+ * stuoh
+ * yzuoh
+ * yzuoh
+ *
 */
