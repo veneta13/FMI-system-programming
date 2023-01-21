@@ -8,10 +8,10 @@ main(int argc, char *argv[]) {
         printf("Please provide at least 2 arguments!\n");
         exit(1);
     }
-  
+
     int fd[2];
     pipe(fd);
-    
+
     if (fork()) {
         close(fd[0]);
         close(1);
