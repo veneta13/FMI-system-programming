@@ -29,5 +29,4 @@ main(int args, char* argv[]) {
  * Var = 2
  * Var = 2
  *
- * /
  */
