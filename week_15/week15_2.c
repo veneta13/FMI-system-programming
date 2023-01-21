@@ -20,3 +20,19 @@ main(int argc, char *argv[]) {
         }
         execlp("pwd", "pwd", 0);
 }
+
+/*
+ *
+ * Output:
+ * who
+ * *потребителите в системата*
+ *
+ *
+ * file:
+ * exam2
+ * exam2
+ * exam2
+ * exam2
+ * *текуща директория от pwd*
+ *
+ */
