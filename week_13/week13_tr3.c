@@ -38,3 +38,20 @@ char *argv[];
 	close(fd);
 	close(fd1);
 }
+
+/*
+ * fileA.txt
+ *
+ * abc123-x
+ * 999aaa
+ * yyyyyy6xxxxx
+ *
+ *
+ * Output:
+ * abc123-x$$$$$$
+ * 999aaa$$$$$$$$
+ * yyyyyy6xxxxx
+ *
+ * file1:
+ * ##############
+ */
