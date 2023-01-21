@@ -129,11 +129,10 @@
 	- затваря се newfd, ако е отворен, и fd се копира на негово място
 	- ако ``fd == new_fd``, **нищо** не се случва (няма затваряне или копиране)
 
-**Файловите дескриптори, направени чрез dup, имат общи**:
-
-	- един и същи отворен файл
-	- **общ** указател към текуща позиция (т.е. ако от единия fd указателят се премести, другият работи с преместения указател)
-	- еднакъв режим на отваряне на файла
+**Файловите дескриптори, направени чрез dup, имат общи:**
+- един и същи отворен файл
+- oбщ** указател към текуща позиция (т.е. ако от единия fd указателят се премести, другият работи с преместения указател)
+- еднакъв режим на отваряне на файла
 
 ### Твърди и символни връзки
 
@@ -266,8 +265,8 @@
 
 **При обработката на сигнали могат да възникнат следните проблеми:**
 
-	- може да се получи **състезание** на сигнали от един и същи тип
-	- може да има **загуба** на сигнали, защото в даден момент ядрото има памет само за по 1 сигнал от тип
+- може да се получи **състезание** на сигнали от един и същи тип
+- може да има **загуба** на сигнали, защото в даден момент ядрото има памет само за по 1 сигнал от тип
 	
 	
 ### Сокет
@@ -301,7 +300,7 @@
 	- **инициализира** се със съдържанието на файла с файлов дескриптор fd
 
 
-	> [📑](https://linuxhint.com/using_mmap_function_linux/) The ``mmap()`` function is used for mapping between a process address space and either files or devices. When a file is mapped to a process address space, the file can be **accessed like an array** in the program. This is one of the most efficient ways to access data in the file and  provides a **seamless coding interface** that is natural for a data structure that can be assessed without he abstraction of reading and writing from files. 
+> [📑](https://linuxhint.com/using_mmap_function_linux/) The ``mmap()`` function is used for mapping between a process address space and either files or devices. When a file is mapped to a process address space, the file can be **accessed like an array** in the program. This is one of the most efficient ways to access data in the file and  provides a **seamless coding interface** that is natural for a data structure that can be assessed without he abstraction of reading and writing from files. 
 
 ### Семафори
 
