@@ -1,6 +1,6 @@
-#include    <unistd.h>
-#include    <fcntl.h>
-#include    <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdio.h>
 
 main(int argc, char *argv[]) {
     int fd, i, status;
