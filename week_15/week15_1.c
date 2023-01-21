@@ -15,3 +15,11 @@ int main() {
         printf("\nStoinostta na j = %d ", j);
     }
 }
+
+/*
+ *
+ * Output:
+ *
+ * Stoinostta na j = 6
+ *
+ */
