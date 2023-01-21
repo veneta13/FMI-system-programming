@@ -300,6 +300,7 @@
 	- създава **нов mapping** във виртуалното адресно пространство на извикващия процес от адреса addr с дължина length
 	- **инициализира** се със съдържанието на файла с файлов дескриптор fd
 
+
 	> [📑](https://linuxhint.com/using_mmap_function_linux/) The ``mmap()`` function is used for mapping between a process address space and either files or devices. When a file is mapped to a process address space, the file can be **accessed like an array** in the program. This is one of the most efficient ways to access data in the file and  provides a **seamless coding interface** that is natural for a data structure that can be assessed without he abstraction of reading and writing from files. 
 
 ### Семафори
