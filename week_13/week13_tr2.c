@@ -21,3 +21,12 @@ main() {
 
 	printf(" Stoinostta na i = %d;", --i);
 }
+
+/*
+ *
+ * Output:
+ *
+ * *информация за процесите в системата*
+ * Stoinostta na i = 1; Stoinostta na i = 0;
+ *
+ */
