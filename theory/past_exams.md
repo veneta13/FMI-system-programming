@@ -59,9 +59,9 @@
 
 ``int pipe(int pipefd[2])`` създава анонимна тръба.
 	
-``ssize_t read(int fd, void *buf, size_t count)`` се използва, за да се пише в тръбата.
+``ssize_t read(int fd, void *buf, size_t count)`` се използва, за да се чете от тръбата.
 	
-``ssize_t write(int fd, const void *buf, size_t count)`` се използва, за да се чете от тръбата.
+``ssize_t write(int fd, const void *buf, size_t count)`` се използва, за да се пише в тръбата.
 	
 ``int close(int fd)`` се използва за затваряне на край на тръбата.
 	
